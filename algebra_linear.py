@@ -48,7 +48,7 @@ def multiplicar_escalar(c:float, vetor: Vector) -> Vector:
 def calcula_media (v:Vector) -> Vector:
     #pego uma lista de vetores, calculo a média de cada um,
     tamanho = len(v)
-    return [multiplicar_escalar(1/tamanho , soma_varios(v))]
+    return multiplicar_escalar(1/tamanho , soma_varios(v))
 
 def produto_escalar(v:Vector,w: Vector) -> float:
     #mesma ideia das somas

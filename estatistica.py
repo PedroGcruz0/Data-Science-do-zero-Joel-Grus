@@ -6,7 +6,7 @@ from algebra_linear import soma_quadrados, produto_escalar
 lista = List[float]
 
 def media (x:lista) -> float:
-    return(sum(x)/len(x))
+    return sum(x)/len(x)
 
 def media_deslocada(xs:lista) -> lista:
     #faço a diferença de cada elemento por sua média
