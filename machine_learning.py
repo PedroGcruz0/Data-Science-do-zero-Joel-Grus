@@ -23,6 +23,23 @@ def train_test_split(xs:List[X],
             [ys[i] for i in train_idxs],
             [ys[i] for i in test_idxs])
 
+#computar estatísticas
+def accuracy(tp:int,fp:int,fn:int,tn:int) -> float:
+    correct = tp+tn
+    total = tp+fp+fn+tn
+    return correct/total
+
+def precision(tp:int,fp:int,fn:int,tn:int)->float:
+    return tp/(tp+fp)
+
+def recall(tp:int,fp:int,fn:int,tn:int)->float:
+    return tp/(tp+fn)
+
+def f1_score(tp:int,fp:int,fn:int,tn:int)->float:
+    p = precision(tp,fp,fn,tn)
+    r = recall(tp,fp,fn,tn)
+    return 2*p*r/(p+r)
+
 
 # Bloco de Testes
 if __name__ == '__main__':
@@ -39,4 +56,9 @@ if __name__ == '__main__':
     x_train,x_test,y_train,y_test = train_test_split(xs,ys,0.33)
     assert all(y==2*x for x, y in zip (x_train,y_train))
     assert all(y==2*x for x, y in zip (x_test,y_test))
-
+    
+    #testando o accuracy
+    assert accuracy(70,4930,13930,981070) == 0.98114
+    assert precision(70,4930,13930,981070) == 0.014
+    assert recall(70,4930,13930,981070) == 0.005
+    
