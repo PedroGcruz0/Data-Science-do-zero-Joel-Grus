@@ -1,13 +1,13 @@
 from typing import List
 from collections import Counter
 
+
+
 def raw_majority_vote(labels:List[str])-> str:
     #função para retornar o mais votado do Counter
     votes = Counter(labels)
     winner,_=votes.most_common(1)[0]
     return winner
-
-
 def majority_vote(labels:List[str])->str:
     """supõe que os blocos estão classificados do mais próximo ao mais distânte"""
     vote_counts = Counter(labels)
